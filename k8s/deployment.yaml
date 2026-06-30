@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mykubernetes
+  labels:
+    app: mykubernetes
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: mykubernetes
+  template:
+    metadata:
+      labels:
+        app: mykubernetes
+    spec:
+      containers:
+        - name: mykubernetes
+          image: amirkian00/kubernetes:1
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 8080
